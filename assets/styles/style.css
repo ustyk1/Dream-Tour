@@ -37,6 +37,7 @@
   --medium-gray-color:#919191;
   --gray-color: #c4c4c4;
   --button-width_150-210: clamp(9.375rem, 8.304rem + 5.36vw, 13.125rem);
+  --h2_fz_38-56: clamp(2.375rem, 2.054rem + 1.61vw, 3.5rem);
 }
 
 body {
@@ -130,19 +131,19 @@ p {
   font-family: "Lato-Black";
   border-radius: 3px;
   cursor: pointer;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+.button:active {
+  transform: scale(0.95);
 }
 .header__button {
   border: 3px solid var(--dark-gray-color);
   background-color: var(--light-gray-color);
   color: var(--dark-gray-color);
-  transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 .header__button:hover {
   background-color: var(--dark-gray-color);
   color: var(--light-gray-color);
-}
-.header__button:active {
-  transform: scale(0.95);
 }
 
 @media screen and (min-width: 992px) {
@@ -163,6 +164,7 @@ p {
 .banner {
   display: flex;
   justify-content: center;
+  margin-bottom: 100px;
 }
 .banner-wrapper {
   max-width: 1220px;
@@ -184,7 +186,7 @@ p {
 .banner__text-wrap > h1 {
   margin-bottom: 20px;
   font-size: clamp(2.625rem, 1.911rem + 3.57vw, 5.125rem);
-  line-height:  clamp(2.625rem, 1.911rem + 3.57vw, 5.125rem);;
+  line-height: 1;
   letter-spacing: -2.04px;
 }
 .banner__text-wrap > p {
@@ -226,5 +228,75 @@ p {
     max-width: 410px;
     align-items: flex-start;
     text-align: left ;
+  }
+}
+
+/* ---------section create-memory---------- */
+.create-memory {
+  background-color: var(--dark-gray-color);
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 100px;
+}
+.create-memory__wrapper {
+  color: var(--light-gray-color);
+  text-align: center;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  max-width: 460px;
+  width: 100%;
+}
+.create-memory__wrapper > h2 {
+  font-family: "Cardo-Bold";
+  letter-spacing: -1.39px;
+  font-size: var(--h2_fz_38-56);
+  margin-bottom: 30px;
+  line-height: 1;
+}
+.create-memory__wrapper > p {
+  font-family: "Lato-Regular";
+  letter-spacing: -0.41px;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.create-memory__button {
+  border: 3px solid var(--light-gray-color);
+  background-color: var(--light-gray-color);
+  color: var(--dark-gray-color);
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+.create-memory__button:hover {
+  background-color: var(--dark-gray-color);
+  color: var(--light-gray-color);
+}
+.create-memory__scribble {
+  /* 125-500 */
+  width: clamp(7.813rem, 1.116rem + 33.48vw, 31.25rem);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+.create-memory__scribble:nth-of-type(2){
+ background-image: url('../images/lines/scribble_light-5.png');
+/* 42,5-170 */
+ height: clamp(2.656rem, 0.379rem + 11.38vw, 10.625rem);
+ left: -75px;
+ top: 50px;
+}
+.create-memory__scribble:nth-of-type(3){
+  background-image: url('../images/lines/scribble_light-4.png');
+  /* 22.5-90*/
+  height: clamp(1.406rem, 0.201rem + 6.03vw, 5.625rem);
+  right: -28px;
+  bottom: 65px;
+}
+@media screen and (max-width: 575px) {
+  .create-memory__scribble {
+    display: none;
   }
 }
