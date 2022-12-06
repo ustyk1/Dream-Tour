@@ -307,13 +307,13 @@ p {
   margin-bottom: 100px;
 }
 .new-places__wrapper {
-  border: 1px solid salmon;
   max-width: 1220px;
   width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 .new-places__text-wrap {
   max-width: 780px;
@@ -331,12 +331,12 @@ p {
   font-family: "Cardo-Bold";
   line-height: 1;
   letter-spacing: -2.44px;
-  margin-bottom: 60px;
+  margin: 20px 0 60px 0;
 }
 .new-places__text-wrap > p {
   font-family: "Lato-Black";
   letter-spacing: -0.63px;
-  font-size: 25px;;
+  font-size: 18px;
 }
 .new-places__airplane {
   width: 73px;
@@ -354,10 +354,24 @@ p {
   max-height: 776px;
   height: 100%;
   display: none;
+  position: relative;
 }
 .new-places__big-photo > img {
   width: 100%;
   object-fit: cover;
+}
+.new-places__big-photo::before {
+  content: '';
+  background-image: url('../images/lines/tape.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 52px;
+  height: 252px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -25px;
 }
 .new-places__description-wrap {
   display: flex;
@@ -416,6 +430,20 @@ p {
   background-position: center center;
   background-repeat: no-repeat;
 }
+.new-places____scribble {
+  /* 29-115 */
+  width: clamp(1.813rem, -2.995rem + 13.35vw, 7.188rem);
+  /* 115-460 */
+  height: clamp(7.188rem, -12.098rem + 53.57vw, 28.75rem);
+  background-image: url('../images/lines/scribble_dark-5.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  display: none;
+}
 @media screen and (min-width: 576px) {
   .description__text-wrap {
     flex-direction: row;
@@ -429,6 +457,12 @@ p {
   }
 } 
 @media screen and (min-width: 992px) {
+  .new-places__text-wrap {
+    margin-bottom: 60px;
+  }
+  .new-places__text-wrap > p {
+    font-size: 25px;
+  }
   .new-places__big-photo {
     display: block;
   }
@@ -443,6 +477,9 @@ p {
     max-width: 320px;
   }
   .description__arrow {
+    display: block;
+  }
+  .new-places____scribble {
     display: block;
   }
 } 
