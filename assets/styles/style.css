@@ -42,6 +42,7 @@
 
 body {
   background-color: var(--light-gray-color);
+  color: var(--dark-gray-color);
 }
 ul {
   padding: 0;
@@ -139,7 +140,6 @@ p {
 .header__button {
   border: 3px solid var(--dark-gray-color);
   background-color: var(--light-gray-color);
-  color: var(--dark-gray-color);
 }
 .header__button:hover {
   background-color: var(--dark-gray-color);
@@ -193,7 +193,6 @@ p {
   margin-bottom: 20px;
   font-family: "Lato-Regular";
   letter-spacing: -0.41px;
-  color: var(--dark-gray-color);
 }
 .banner__button {
   border: 3px solid var(--dark-gray-color);
@@ -266,7 +265,6 @@ p {
 .create-memory__button {
   border: 3px solid var(--light-gray-color);
   background-color: var(--light-gray-color);
-  color: var(--dark-gray-color);
   transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 .create-memory__button:hover {
@@ -300,3 +298,151 @@ p {
     display: none;
   }
 }
+
+/* ------------section------------ */
+.new-places {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 100px;
+}
+.new-places__wrapper {
+  border: 1px solid salmon;
+  max-width: 1220px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-places__text-wrap {
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-places__text-wrap > h2 {
+  /* 42-98 */
+  font-size: clamp(2.813rem, 1.866rem + 4.73vw, 6.125rem);
+  font-family: "Cardo-Bold";
+  line-height: 1;
+  letter-spacing: -2.44px;
+  margin-bottom: 60px;
+}
+.new-places__text-wrap > p {
+  font-family: "Lato-Black";
+  letter-spacing: -0.63px;
+  font-size: 25px;;
+}
+.new-places__airplane {
+  width: 73px;
+  height: 74px;
+  background-image: url('../images/icons/airplace-icon.png');
+}
+.new-places__photos-wrap {
+  display: flex;
+  justify-content: center;
+}
+.new-places__big-photo {
+  margin-right: 40px;
+  max-width: 564px;
+  width: 100%;
+  max-height: 776px;
+  height: 100%;
+  display: none;
+}
+.new-places__big-photo > img {
+  width: 100%;
+  object-fit: cover;
+}
+.new-places__description-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.description__photo-wrap {
+  max-width: 418px;
+  width: 100%;
+  max-height: 322px;
+  height: 100%;
+}
+.description__photo-wrap > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.description__text-wrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.description__text-wrap > a {
+  text-decoration: underline;
+  /* 20-36 */
+  font-size: clamp(1.25rem, 0.964rem + 1.43vw, 2.25rem);
+  font-family: "Cardo-Bold";
+  letter-spacing: -0.91px;
+  line-height: 1.37;
+}
+.description__link-description {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.description__link-description > p {
+  font-size: 16px;
+  font-family: "Lato-Regular";
+  letter-spacing: -0.41px;
+}
+.description__arrow {
+  width: 120px;
+  height: 40px;
+  align-self: flex-end;
+  display: none;
+}
+.description__arrow > a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/icons/arrow.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 576px) {
+  .description__text-wrap {
+    flex-direction: row;
+    text-align: left;
+  }
+  .description__text-wrap > a {
+    text-align: center;
+  }
+  .description__link-description {
+    max-width: 50%;
+  }
+} 
+@media screen and (min-width: 992px) {
+  .new-places__big-photo {
+    display: block;
+  }
+  .new-places__description-wrap {
+    align-items: flex-start;
+    gap: 60px;
+  }
+  .description__text-wrap > a {
+    text-align: left;
+  }
+  .description__link-description {
+    max-width: 320px;
+  }
+  .description__arrow {
+    display: block;
+  }
+} 
