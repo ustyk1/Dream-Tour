@@ -11,3 +11,11 @@ $accordion.addEventListener('click', (e) => {
       e.target.nextElementSibling.style.height = 0;
     }
 });
+
+const $hamburgerBtn = document.querySelector('.nav-btn');
+const $navigation = document.querySelector('.header__nav')
+
+$hamburgerBtn.addEventListener('click', () => {
+  $navigation.classList.toggle('active');
+  $hamburgerBtn.classList.toggle('active');
+});
