@@ -19,3 +19,9 @@ $hamburgerBtn.addEventListener('click', () => {
   $navigation.classList.toggle('active');
   $hamburgerBtn.classList.toggle('active');
 });
+
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});

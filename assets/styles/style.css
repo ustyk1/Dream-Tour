@@ -121,12 +121,11 @@ p {
   transition: height 1s cubic-bezier(.68,-0.55,.27,1.55);
   box-sizing: border-box;
   position: absolute;
-  top: 50px;
+  top: 60px;
   z-index: -1;
 }
 .header__nav.active {
-  height: 100vh;
-  height: -webkit-fill-available; 
+  height: calc(var(--vh, 1vh) * 100);
 }
 .header__nav > ul {
   padding-top: 50px;
