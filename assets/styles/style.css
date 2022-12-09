@@ -39,7 +39,13 @@
   --button-width_150-210: clamp(9.375rem, 8.304rem + 5.36vw, 13.125rem);
   --h2_fz_38-56: clamp(2.375rem, 2.054rem + 1.61vw, 3.5rem);
 }
-
+html {
+  box-sizing: border-box;
+  margin: 0;
+}
+html.active {
+  overflow-y: hidden;
+}
 body {
   background-color: var(--light-gray-color);
   color: var(--dark-gray-color);
@@ -67,7 +73,7 @@ p {
 }
 
 .wrapper {
-  padding: 30px 30px;
+  padding: 30px 15px;
 }
 .container {
   max-width: var(--container);
@@ -81,13 +87,14 @@ p {
   box-sizing: border-box;
   margin: 0 auto;
   margin-bottom: 100px;
+  padding: 5px 0;
   display: flex;
   justify-content: center;
   background-color: var(--light-gray-color);
   position: sticky;
   -webkit-position: sticky;
   z-index: 3;
-  top: 0;
+  top: -1px;
 }
 .header-wrapper {
   background-color: var(--light-gray-color);
@@ -121,7 +128,7 @@ p {
   transition: height 1s cubic-bezier(.68,-0.55,.27,1.55);
   box-sizing: border-box;
   position: absolute;
-  top: 60px;
+  top: 40px;
   z-index: -1;
 }
 .header__nav.active {
@@ -424,8 +431,7 @@ p {
 .new-places__airplane {
   width: clamp(3.438rem, 3.116rem + 1.61vw, 4.563rem);
   height: clamp(3.438rem, 3.116rem + 1.61vw, 4.563rem);
-  background-image: url('../images/icons/airplace-icon.png');
-  background-size: cover;
+  background: url('../images/icons/airplace-icon.png') no-repeat center center/cover;
 }
 .new-places__photos-wrap {
   display: flex;
@@ -446,10 +452,7 @@ p {
 }
 .new-places__big-photo::before {
   content: '';
-  background-image: url('../images/lines/tape.png');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url('../images/lines/tape.png') no-repeat center center/cover;
   position: absolute;
   width: 52px;
   height: 252px;
@@ -508,18 +511,12 @@ p {
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-image: url('../images/icons/arrow.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: url('../images/icons/arrow.png') no-repeat center center/cover;
 }
 .new-places__scribble {
   width: clamp(1.813rem, -2.995rem + 13.35vw, 7.188rem);
   height: clamp(7.188rem, -12.098rem + 53.57vw, 28.75rem);
-  background-image: url('../images/lines/scribble_dark-5.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('../images/lines/scribble_dark-5.png') no-repeat center center/cover;
   position: absolute;
   right: 5%;
   top: 10%;
@@ -586,7 +583,7 @@ p {
   text-align: center;
 }
 .choose__text {
-  max-width: 80%;
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -610,7 +607,7 @@ p {
   letter-spacing: -0.41px;
 }
 .choose__photo-wrap {
-  width: 75%;
+  width: 90%;
 }
 .choose__photo-wrap > img {
   width: 100%;
@@ -620,16 +617,17 @@ p {
 .choose__scrible {
   width: clamp(32.813rem, 8.732rem + 38.84vw, 43.688rem);
   height: clamp(7.188rem, 1.79rem + 8.71vw, 9.625rem);
-  background-image: url('../images/lines/scribble_light-3.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  background: url('../images/lines/scribble_light-3.png') no-repeat center center/cover;
   position: absolute;
   bottom: -3%;
   left: -5%;
   display: none;
 }
-
+@media screen and (min-width: 576px) {
+  .choose__photo-wrap {
+    width: 75%;
+  }
+} 
 @media screen and (min-width: 992px) {
   .choose {
     padding: 150px 0;
@@ -707,11 +705,8 @@ p {
   display: block;
   width: 25px;
   height: 25px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
   transition: transform 0.2s linear;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E") no-repeat center center/contain;
   position: absolute;
   right: 20px;
   top: calc(50% - 12px);
@@ -889,7 +884,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: 30px;
 }
 .footer__wrapper > h2 {
   width: 100%;
@@ -936,9 +931,13 @@ p {
   flex-direction: column;
   gap: 20px;
 }
-.footer__wrapper + p {
+.footer__wrapper + div {
   margin-top: 60px;
-  font-size: 21px;
+  display: flex;
+  flex-direction: column;
+}
+.footer__wrapper + div > p {
+  font-size: 16px;
   text-align: center;
   font-family: "Lato-Regular";
   letter-spacing: -0.52px;
@@ -946,10 +945,7 @@ p {
 .footer__scribble {
   width:clamp(18.75rem, 4.911rem + 22.32vw, 25rem);
   height: clamp(8.063rem, 1.835rem + 10.04vw, 10.875rem);
-  background-image: url('../images/lines/scribble_dark-2.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  background: url('../images/lines/scribble_dark-2.png') no-repeat center center/cover;
   position: absolute;
   bottom: 10%;
   left: 1%;
@@ -958,9 +954,9 @@ p {
 @media screen and (min-width: 992px) {
   .footer__wrapper {
     box-sizing: border-box;
-   flex-direction: row;
-   gap: 30px;
-   padding-left: 30px;
+    flex-direction: row;
+    gap: 60px;
+    padding-left: 30px;
   }
   .footer__wrapper > h2 {
     max-width: 210px;
@@ -974,6 +970,12 @@ p {
   .footer__scribble {
     display: block;
   }
+  .footer__wrapper + div {
+   flex-direction: row;
+  }
+  .footer__wrapper + div > p {
+    font-size: 21px;
+   }
 }
 @media screen and (min-width: 1158px) {
   .footer {
